@@ -1,0 +1,14 @@
+Steps to install Metasploit on Windows 10 using the Windows Subsystem for Linux
+
+1.) Enable Developer Mode
+    C:\> reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" /t REG_DWORD /f /v "AllowDevelopmentWithoutDevLicense" /d "1"
+
+2.) Enable Windows Subsystem for Linux
+    C:\> DISM /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux
+
+3.) Reboot
+
+4.) Type "bash" at cmd line to get into Windows Subsystem for Linux and create a new password for your user.
+
+5.) Install Metasploit
+    test@Desktop:/mnt/c$ curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
